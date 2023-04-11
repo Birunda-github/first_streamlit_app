@@ -17,10 +17,12 @@ st.text('🥑🍞 Avocado Toast')
 st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 #let's put a pick list here so that the user can pick fruit they want for smoothie
-st.multiselect('pick some fruits',list(my_fruit_list.index),
+fruit_selected=st.multiselect('pick some fruits',list(my_fruit_list.index),
                ['Avocado','Strawberries'])
+fruits_to_show=my_fruit_list.loc[fruit_selected]
 
-st.dataframe(my_fruit_list)
+#st.dataframe(my_fruit_list)
+st.dataframe(fruits_to_show)
 
 
 
