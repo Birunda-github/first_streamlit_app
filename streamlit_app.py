@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as p
 
 my_fruit_list=p.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
+#setting fruit_name as index for widget
+my_fruit_list=my_fruit_list.set_index('Fruit')
 
 st.title('My Mom\'s New Healthy Diner')
 
