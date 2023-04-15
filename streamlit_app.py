@@ -31,7 +31,7 @@ fruityvice_response=requests.get('https://fruityvice.com/api/fruit/banana')
 
 st.text(fruityvice_response.json())
 
-fruityvice_normalized=pandas.json_normalize(fruityvice_response.json())
+fruityvice_normalized=p.json_normalize(fruityvice_response.json())
 
 st.dataframe(fruityvice_normalize)
 
