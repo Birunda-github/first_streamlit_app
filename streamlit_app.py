@@ -28,7 +28,12 @@ st.dataframe(fruits_to_show)
 st.header('Fruityvice fruit advice!')
 
 fruityvice_response=requests.get('https://fruityvice.com/api/fruit/banana')
+
 st.text(fruityvice_response.json())
+
+fruityvice_normalized=pandas.json_normalize(fruityvice_response.json())
+
+st.dataframe(fruityvice_normalize)
 
 
 
