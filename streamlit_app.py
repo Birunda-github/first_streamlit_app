@@ -1,6 +1,7 @@
 
 import streamlit as st
 import pandas as p
+import requests
 
 my_fruit_list=p.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 #setting fruit_name as index for widget
@@ -23,6 +24,9 @@ fruits_to_show=my_fruit_list.loc[fruit_selected]
 
 #st.dataframe(my_fruit_list)
 st.dataframe(fruits_to_show)
+
+fruityvice_response=requests.get('https://fruityvice.com/api/fruit/watermelon')
+st.text(fruityvice_response)
 
 
 
