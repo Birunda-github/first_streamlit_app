@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as p
 import requests
 import snowflake.connector
-
+from urllib.error import URLError
 
 my_fruit_list=p.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 #setting fruit_name as index for widget
@@ -39,6 +39,10 @@ st.text(fruityvice_response.json())
 fruityvice_normalize=p.json_normalize(fruityvice_response.json())
 
 st.dataframe(fruityvice_normalize)
+
+#don't run anything past when we troubleshoot
+st.stop()
+
 #conecting to snowflake
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
