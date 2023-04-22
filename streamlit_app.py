@@ -28,17 +28,21 @@ fruits_to_show=my_fruit_list.loc[fruit_selected]
 st.dataframe(fruits_to_show)
 
 #new section to display api response
+
+# create a function for fruit_choice
+def get_fruityvice_data(this_fruity_choice):
+  fruityvice_response=requests.get('https://fruityvice.com/api/fruit/'+fruit_choice)
+  fruityvice_normalize=p.json_normalize(fruityvice_response.json())
+  return fruityvice_normalize
+
 st.header('Fruityvice fruit advice!')
-#st.write('The user entered',fruit_choice)
 try:
   fruit_choice=st.text_input('What fruit would you like information about?')
   if not fruit_choice:
     st.error('please select a fruit to get information')
   else:
-    fruityvice_response=requests.get('https://fruityvice.com/api/fruit/'+fruit_choice)
-    fruityvice_normalize=p.json_normalize(fruityvice_response.json())
-    st.dataframe(fruityvice_normalize)
-  
+    back_from_function=get_fruityvice_data(fruit_choice)
+    st.dataframe(back_from_function)
 except URLError as e:
   st.error()
 
