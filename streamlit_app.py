@@ -47,7 +47,7 @@ except URLError as e:
   st.error()
 
 #don't run anything past when we troubleshoot
-st.stop()
+#st.stop()
 
 #conecting to snowflake
 
