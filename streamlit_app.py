@@ -30,7 +30,7 @@ st.dataframe(fruits_to_show)
 #new section to display api response
 st.header('Fruityvice fruit advice!')
 #st.write('The user entered',fruit_choice)
-try: 
+try:
   fruit_choice=st.text_input('What fruit would you like information about?')
   if not fruit_choice:
     st.error('please select a fruit to get information')
@@ -38,7 +38,8 @@ try:
     fruityvice_response=requests.get('https://fruityvice.com/api/fruit/'+fruit_choice)
     fruityvice_normalize=p.json_normalize(fruityvice_response.json())
     st.dataframe(fruityvice_normalize)
- except URLError as e:
+  
+except URLError as e:
   st.error()
 
 #don't run anything past when we troubleshoot
