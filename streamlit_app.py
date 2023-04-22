@@ -2,6 +2,8 @@
 import streamlit as st
 import pandas as p
 import requests
+import snowflake.connector
+
 
 my_fruit_list=p.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 #setting fruit_name as index for widget
