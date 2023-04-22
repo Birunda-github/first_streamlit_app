@@ -55,7 +55,7 @@ st.header("The Fruit List contains:")
 #st.text(my_data_row)  
 st.dataframe(my_data_rows)
 
-fruit_choice=st.text_input('What would you like to choose?','Mango')
-st.write('Thanks for adding ',fruit_choice)
+add_my_fruit=st.text_input('What would you like to choose?','Mango')
+st.write('Thanks for adding ',add_my_fruit)
 
 
