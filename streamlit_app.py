@@ -59,3 +59,5 @@ add_my_fruit=st.text_input('What would you like to choose?','Mango')
 st.write('Thanks for adding ',add_my_fruit)
 
 
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from streamlit')")
+
