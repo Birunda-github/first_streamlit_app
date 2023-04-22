@@ -47,8 +47,6 @@ except URLError as e:
   st.error()
 
 #don't run anything past when we troubleshoot
-#st.stop()
-
 #conecting to snowflake
 
 #returns only one value
@@ -66,10 +64,10 @@ if st.button('Get Fruit Load list'):
   my_cnx=snowflake.connector.connect(**st.secrets["snowflake"])
   my_data_rows=get_fruit_load_list()
   st.dataframe(my_data_rows)
+st.stop()
+add_my_fruit=st.text_input('What would you like to choose?','Mango')
+st.write('Thanks for adding ',add_my_fruit)
 
-# add_my_fruit=st.text_input('What would you like to choose?','Mango')
-# st.write('Thanks for adding ',add_my_fruit)
 
-
-#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from streamlit')")
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from streamlit')")
 
